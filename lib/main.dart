@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gymapp/telas/exercicio_tela.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: Text("App do Fabio primeiro app"),
+      home: ExercicioTela(),
     );
   }
 }
