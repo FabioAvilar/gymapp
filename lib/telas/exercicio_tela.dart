@@ -27,6 +27,7 @@ class ExercicioTela extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.blue,
         appBar: AppBar(
             title: Text("${exercicioModelo.nome} - ${exercicioModelo.treino}")),
         floatingActionButton: FloatingActionButton(
@@ -35,13 +36,33 @@ class ExercicioTela extends StatelessWidget {
           },
           child: const Icon(Icons.add),
         ),
-        body: Padding(
+        body: Container(
+          margin: const EdgeInsets.all(8),
           padding: const EdgeInsets.all(16.0),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(16),
+          ),
           child: ListView(
             children: [
-              ElevatedButton(
-                onPressed: () {},
-                child: const Text("Enviar foto"),
+              SizedBox(
+                height: 250,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: const Text("Enviar foto"),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: const Text("Tirar foto"),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 8,
               ),
               const Text(
                 "como fazer?",
@@ -50,8 +71,19 @@ class ExercicioTela extends StatelessWidget {
                   fontSize: 18,
                 ),
               ),
+              const SizedBox(
+                height: 8,
+              ),
               Text(exercicioModelo.comoFazer),
-              const Divider(),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Divider(
+                  color: Colors.black,
+                ),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
               const Text(
                 "como estou me sentindo?",
                 style: TextStyle(
@@ -63,7 +95,21 @@ class ExercicioTela extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: List.generate(listaSentimentos.length, (index) {
                   SentimentoModelo sentimentoAgora = listaSentimentos[index];
-                  return Text(sentimentoAgora.sentindo);
+                  return ListTile(
+                      dense: true,
+                      contentPadding: EdgeInsets.zero,
+                      title: Text(sentimentoAgora.sentindo),
+                      subtitle: Text(sentimentoAgora.data),
+                      leading: const Icon(Icons.double_arrow),
+                      trailing: IconButton(
+                        icon: const Icon(
+                          Icons.delete,
+                          color: Colors.red,
+                        ),
+                        onPressed: () {
+                          print("DELETAR ${sentimentoAgora.sentindo}");
+                        },
+                      ));
                 }),
               )
             ],
