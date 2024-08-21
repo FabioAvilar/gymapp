@@ -1,0 +1,23 @@
+{
+    "flutter": {
+        "platforms": {
+            "android": {
+                "default": {
+                    "projectId": "gymapp-75f4f",
+                    "appId": "1:538250676423:android:dd22de4ae4d9d95cde96e2",
+                    "fileOutput": "android/app/google-services.json"
+                }
+            },
+            "dart": {
+                "lib/firebase_options.dart": {
+                    "projectId": "gymapp-75f4f",
+                    "configurations": {
+                        "android": "1:538250676423:android:dd22de4ae4d9d95cde96e2",
+                        "ios": "1:538250676423:ios:510c42cacd736db5de96e2",
+                        "web": "1:538250676423:web:37aff8e7b197cf96de96e2"
+                    }
+                }
+            }
+        }
+    }
+}
